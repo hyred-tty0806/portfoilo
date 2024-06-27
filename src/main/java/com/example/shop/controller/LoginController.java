@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Slf4j
 @Controller
-@RequestMapping("/customers")
+@RequestMapping("/login")
 public class LoginController {
     @Autowired
     private CustomerService customerService;
@@ -40,7 +40,7 @@ public class LoginController {
         Optional<Customer> customerOpt = customerService.getCustomerByUsernameAndPassword(username, password);
         if (customerOpt.isPresent()) {
             model.addAttribute("customer", customerOpt.get());
-            return "customer-details";
+            return "redirect:/customers/list";
         } else {
             return "customer-not-found";
         }
