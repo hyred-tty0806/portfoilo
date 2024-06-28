@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Customer List</h1>
+    <a href="${pageContext.request.contextPath}/customers/register">Register New Customer</a>
     <table border="1">
         <thead>
             <tr>

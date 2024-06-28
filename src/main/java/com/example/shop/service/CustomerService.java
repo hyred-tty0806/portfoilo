@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.example.shop.entity.Customer;
 import com.example.shop.repository.CustomerRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class CustomerService {
     @Autowired
@@ -20,5 +22,10 @@ public class CustomerService {
     
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
+    }
+    
+    @Transactional
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.save(customer);
     }
 }
